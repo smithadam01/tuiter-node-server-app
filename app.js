@@ -1,5 +1,7 @@
 import express from 'express';
-import cors from 'cors'
+import cors from 'cors';
+import mongoose from "mongoose";
+
 import HelloController
   from "./controllers/hello-controller.js";
 import UserController
@@ -7,6 +9,9 @@ import UserController
 import TuitsController
   from "./controllers/tuits/tuits-controller.js";
 
+const CONNECTION_STRING = 'mongodb+srv://smithadam01:supersafebaltimore@cluster0.fb9pr3z.mongodb.net/?retryWrites=true&w=majority'
+ || 'mongodb://localhost:27017/tuiter'
+mongoose.connect(CONNECTION_STRING);
 const app = express()
 app.use(cors())
 app.use(express.json());
